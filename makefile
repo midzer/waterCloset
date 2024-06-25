@@ -1,7 +1,7 @@
 PROG = waterCloset
 MAP_PROG = mapEditor
 
-CC = gcc
+CC = emcc
 PREFIX ?= /usr
 BIN_DIR ?= $(PREFIX)/bin
 DATA_DIR ?= /opt/$(PROG)
@@ -25,8 +25,8 @@ NPROCS = $(shell grep -c 'processor' /proc/cpuinfo)
 MAKEFLAGS += -j$(NPROCS)
 
 CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDATA_DIR=\"$(DATA_DIR)\"
-CXXFLAGS += -Wall -Wempty-body -Werror -Wstrict-prototypes -Werror=maybe-uninitialized -Warray-bounds
-CXXFLAGS += -g -lefence
+CXXFLAGS += -Wall -Wempty-body -Werror -Wstrict-prototypes -Warray-bounds
+CXXFLAGS += -flto -O3 -fno-rtti -fno-exceptions
 
 LDFLAGS += `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
 
