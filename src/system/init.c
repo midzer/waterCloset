@@ -47,7 +47,7 @@ void initSDL(void)
 
 	rendererFlags = SDL_RENDERER_ACCELERATED;
 
-	windowFlags = 0;
+	windowFlags = SDL_WINDOW_ALLOW_HIGHDPI;
 
 	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO|SDL_INIT_JOYSTICK) < 0)
 	{
