@@ -1,5 +1,6 @@
 [
     "main",
+    "initGame",
     "presentScene",
     "SDL_Delay",
     "SDL_RenderPresent",
